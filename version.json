@@ -1,0 +1,13 @@
+{
+  "version": "1.0.1",
+  "version_code": 101,
+  "release_date": "2026-11-09",
+  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.1",
+  "title_en": "New Update Available: Cam Moon Pro v1.0.1",
+  "changelog_ar": "• الإصدار الرسمي الأول v1.0.1\n• تحسين أداء نقل الفيديو عبر USB والواي فاي بدقة 4K و 60 إطار/ث\n• تقليل زمن التأخير (Latency) إلى أقل من 12ms\n• نظام الكشف التلقائي عن التحديثات والإصدارات الجديدة",
+  "changelog_en": "• Official Release v1.0.1\n• High performance 4K 60FPS video streaming over USB & Wi-Fi\n• Ultra-low latency optimization (<12ms)\n• Automatic in-app update notification system",
+  "website_url": "https://cam-moon-pro.pages.dev",
+  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.1/Cam_Moon_Pro_Setup.exe",
+  "android_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.1/Cam_Moon_Pro.apk",
+  "is_mandatory": false
+}
