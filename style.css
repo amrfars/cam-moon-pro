@@ -113,14 +113,18 @@ body.ltr {
 }
 
 .logo-img {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 1.4px rgba(241, 245, 249, 0.45));
   flex-shrink: 0;
 }
 
 .logo-img-sm {
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 1.2px rgba(241, 245, 249, 0.40));
   flex-shrink: 0;
 }
 
