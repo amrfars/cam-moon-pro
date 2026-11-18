@@ -1,13 +1,13 @@
 {
-  "version": "1.0.2",
-  "version_code": 102,
+  "version": "1.0.3",
+  "version_code": 103,
   "release_date": "2026-11-18",
-  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.2",
-  "title_en": "New Update Available: Cam Moon Pro v1.0.2",
-  "changelog_ar": "• إعادة تصميم واجهة برنامج الكمبيوتر بالكامل بالثيم الاحترافي الداكن والسيان الكهربائي مع دعم كامل للعربية والإنجليزية\n• إضافة تبويبات وإعدادات مرتبة في لوحة التحكم وشريط أدوات المعاينة السريع\n• تحسينات في استقرار البث وتنظيم الحرارة والتركيز التلقائي على الأندرويد\n• إصلاح حفظ الإعدادات وإضافة رابط التواصل مع المطور عبر تيليجرام",
-  "changelog_en": "• Complete PC Studio UI redesign with Electric Sky Cyan theme and full RTL/LTR support\n• Organized framing, looks, quality presets, and quick viewport toolbar\n• Android thermal throttling, focus, and stream stability improvements\n• Fixed settings persistence and added Telegram developer contact",
+  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.3",
+  "title_en": "New Update Available: Cam Moon Pro v1.0.3",
+  "changelog_ar": "• مُثبّت جديد بالكامل لنظام ويندوز مع إمكانية اختيار مجلد التثبيت وتفقد المساحة الحرة\n• دعم الاكتشاف التلقائي للإصدارات الجديدة مباشرة من GitHub Releases في الهاتف والكمبيوتر\n• توجيه مباشر لصفحة التحميل الذكية مع إبراز نسخة جهازك تلقائياً\n• تحسينات في واجهة التحديثات وإضافة زر الفحص اليدوي على الهاتف",
+  "changelog_en": "• Redesigned Windows Setup installer with custom install directory picker and live disk check\n• Automatic GitHub Releases update detection on Windows, Android, and Website\n• Direct smart download-page redirect highlighting your device's update card\n• Refreshed cyan update dialog UI and manual update check on Android",
   "website_url": "https://cam-moon-pro.pages.dev",
-  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.2/Cam_Moon_Pro_Setup.exe",
+  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.3/Cam_Moon_Pro_Setup.exe",
   "android_download_url": "https://cam-moon-pro.pages.dev/downloads/Cam_Moon_Pro.apk",
   "is_mandatory": false
 }
