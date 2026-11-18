@@ -222,6 +222,9 @@ document.addEventListener('DOMContentLoaded', () => {
         el.innerHTML = translations[lang][key];
       }
     });
+    if (typeof window.__applyDynamicReleaseState === 'function') {
+      window.__applyDynamicReleaseState();
+    }
   }
 
   if (langToggleBtn) {
@@ -230,15 +233,155 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ================= 4. AUTO-LOAD LATEST VERSION =================
-  fetch('version.json')
-    .then(res => res.json())
-    .then(data => {
-      if (data && data.version) {
-        document.querySelectorAll('.ver-tag').forEach(tag => {
-          tag.textContent = 'v' + data.version;
-        });
+  // ================= 4. AUTO-SYNC LATEST RELEASE (version.json + GitHub Releases) =================
+  function parseSemVer(v) {
+    const clean = String(v || '').replace(/^[vV]/, '').split('-')[0];
+    return clean.split('.').map(n => parseInt(n, 10) || 0);
+  }
+
+  function compareSemVer(a, b) {
+    const pa = parseSemVer(a);
+    const pb = parseSemVer(b);
+    const len = Math.max(pa.length, pb.length);
+    for (let i = 0; i < len; i++) {
+      const da = pa[i] || 0;
+      const db = pb[i] || 0;
+      if (da !== db) return da > db ? 1 : -1;
+    }
+    return 0;
+  }
+
+  function formatMb(bytes, isEn) {
+    if (!bytes || bytes <= 0) return null;
+    const mb = bytes / (1024 * 1024);
+    const num = mb >= 100 ? Math.round(mb) : mb.toFixed(1);
+    return isEn ? `${num} MB` : `${num} ميجابايت`;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const reqPlatform = (params.get('platform') || '').toLowerCase();
+  const reqVersion = params.get('v') || '';
+
+  let latestState = {
+    version: '',
+    pcUrl: '',
+    apkUrl: '',
+    pcBytes: 0,
+    apkBytes: 0,
+    notesAr: '',
+    notesEn: '',
+    notesRaw: ''
+  };
+
+  window.__applyDynamicReleaseState = function () {
+    const isEn = currentLang === 'en';
+    const ver = latestState.version || reqVersion;
+
+    if (ver) {
+      document.querySelectorAll('.ver-tag').forEach(tag => {
+        tag.textContent = 'v' + ver.replace(/^[vV]/, '');
+      });
+    }
+
+    if (latestState.pcUrl) {
+      const heroPc = document.getElementById('heroPcBtn');
+      const cardPc = document.getElementById('cardPcBtn');
+      if (heroPc) heroPc.href = latestState.pcUrl;
+      if (cardPc) cardPc.href = latestState.pcUrl;
+    }
+    if (latestState.apkUrl) {
+      const heroApp = document.getElementById('heroAppBtn');
+      const cardApp = document.getElementById('cardAppBtn');
+      if (heroApp) heroApp.href = latestState.apkUrl;
+      if (cardApp) cardApp.href = latestState.apkUrl;
+    }
+
+    const pcSizeStr = formatMb(latestState.pcBytes, isEn);
+    const appSizeStr = formatMb(latestState.apkBytes, isEn);
+    const cardPcSize = document.getElementById('cardPcSize');
+    const cardAppSize = document.getElementById('cardAppSize');
+    if (pcSizeStr && cardPcSize) cardPcSize.textContent = pcSizeStr;
+    if (appSizeStr && cardAppSize) cardAppSize.textContent = appSizeStr;
+
+    if (reqPlatform === 'pc' || reqPlatform === 'android') {
+      const banner = document.getElementById('updateHighlightBanner');
+      const badge = document.getElementById('updateBannerBadge');
+      const titleEl = document.getElementById('updateBannerTitle');
+      const notesEl = document.getElementById('updateBannerNotes');
+      const grid = document.getElementById('dlContainerGrid');
+      const pcCard = document.getElementById('downloadCardPc');
+      const appCard = document.getElementById('downloadCardApp');
+      const pcPill = document.getElementById('pcRecPill');
+      const appPill = document.getElementById('appRecPill');
+
+      if (banner && badge && titleEl && notesEl) {
+        banner.hidden = false;
+        badge.textContent = 'v' + (ver || '1.0.3').replace(/^[vV]/, '');
+        titleEl.textContent = isEn
+          ? (reqPlatform === 'pc' ? 'Ready to Update Cam Moon Pro for Windows' : 'Ready to Update Cam Moon Pro for Android')
+          : (reqPlatform === 'pc' ? 'التحديث الجديد لبرنامج الكمبيوتر جاهز للتحميل' : 'التحديث الجديد لتطبيق الهاتف جاهز للتحميل');
+        notesEl.textContent = (isEn ? latestState.notesEn : latestState.notesAr)
+          || latestState.notesRaw
+          || (isEn ? 'Click the highlighted download button below to get the latest release.' : 'اضغط على زر التحميل المميز بالأسفل لتنزيل أحدث إصدار وتثبيته مباشرة.');
       }
-    })
-    .catch(() => {});
+
+      if (reqPlatform === 'pc' && pcCard && pcPill) {
+        pcCard.classList.add('is-highlighted-pc');
+        pcPill.hidden = false;
+        pcPill.textContent = isEn ? 'Your PC • Latest Update' : 'جهازك الحالي • التحديث الجديد';
+      } else if (reqPlatform === 'android' && appCard && appPill) {
+        appCard.classList.add('is-highlighted-app');
+        appPill.hidden = false;
+        appPill.textContent = isEn ? 'Your Phone • Latest Update' : 'هاتفك الحالي • التحديث الجديد';
+        if (grid) grid.classList.add('prioritize-app');
+      }
+    }
+  };
+
+  Promise.allSettled([
+    fetch('version.json', { cache: 'no-store' }).then(r => (r.ok ? r.json() : null)),
+    fetch('https://api.github.com/repos/amrfars/cam-moon-pro/releases/latest', {
+      headers: { Accept: 'application/vnd.github+json' }
+    }).then(r => (r.ok ? r.json() : null))
+  ]).then(([vjRes, ghRes]) => {
+    const vj = vjRes.status === 'fulfilled' ? vjRes.value : null;
+    const gh = ghRes.status === 'fulfilled' ? ghRes.value : null;
+
+    const vjVer = vj && vj.version ? String(vj.version).replace(/^[vV]/, '') : '';
+    const ghVer = gh && !gh.draft && gh.tag_name ? String(gh.tag_name).replace(/^[vV]/, '') : '';
+
+    const ghAssets = Array.isArray(gh && gh.assets) ? gh.assets : [];
+    const ghExe = ghAssets.find(a => /\.exe$/i.test(a.name || ''));
+    const ghApk = ghAssets.find(a => /\.apk$/i.test(a.name || ''));
+
+    const ghIsNewer = ghVer && (!vjVer || compareSemVer(ghVer, vjVer) > 0);
+    const chosenVer = ghIsNewer ? ghVer : (vjVer || ghVer);
+
+    if (chosenVer) latestState.version = chosenVer;
+
+    if (ghIsNewer) {
+      latestState.pcUrl = (ghExe && ghExe.browser_download_url) || (gh && gh.html_url) || (vj && vj.pc_download_url) || '';
+      latestState.apkUrl = (ghApk && ghApk.browser_download_url) || (vj && vj.android_download_url) || 'downloads/Cam_Moon_Pro.apk';
+      latestState.pcBytes = (ghExe && ghExe.size) || 0;
+      latestState.apkBytes = (ghApk && ghApk.size) || 0;
+      latestState.notesRaw = (gh && gh.body) || '';
+    } else if (vj) {
+      latestState.pcUrl = (ghExe && ghVer === vjVer && ghExe.browser_download_url) || vj.pc_download_url || '';
+      latestState.apkUrl = vj.android_download_url || 'downloads/Cam_Moon_Pro.apk';
+      latestState.pcBytes = (ghExe && ghExe.size) || 0;
+      latestState.apkBytes = (ghApk && ghApk.size) || 0;
+      latestState.notesAr = vj.changelog_ar || '';
+      latestState.notesEn = vj.changelog_en || '';
+      latestState.notesRaw = (gh && gh.body) || '';
+    }
+
+    window.__applyDynamicReleaseState();
+
+    if (reqPlatform === 'pc' || reqPlatform === 'android' || window.location.hash === '#downloads') {
+      const dlSec = document.getElementById('downloads');
+      if (dlSec) {
+        setTimeout(() => dlSec.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120);
+      }
+    }
+  });
 });
