@@ -1,13 +1,13 @@
 {
-  "version": "1.0.4",
-  "version_code": 104,
+  "version": "1.0.5",
+  "version_code": 105,
   "release_date": "2026-11-18",
-  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.4",
-  "title_en": "New Update Available: Cam Moon Pro v1.0.4",
-  "changelog_ar": "• تحديث الهوية والشعار الرسمي الجديد للتطبيق وبرنامج الكمبيوتر والموقع بالكامل\n• ضبط أيقونة تطبيق الهاتف بدون خلفية بيضاء وحجم كاميرا واضح وممتلئ\n• مُثبّت ويندوز محسّن مع دعم اختيار مجلد التثبيت ونظام تحديثات GitHub التلقائي",
-  "changelog_en": "• Updated official Cam Moon Pro camera logo across Android, Windows PC Studio, Setup, and Website\n• Clean transparent cutout with balanced full-size Android adaptive launcher icon\n• Synchronized GitHub Releases updater and custom install path setup",
+  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.5 (أداء فائق السرعة)",
+  "title_en": "New Update Available: Cam Moon Pro v1.0.5 (Ultra-Light Performance)",
+  "changelog_ar": "• تحسين جذري للسرعة وخفة الواجهة وإزالة أي تهنيج في الإعدادات أو شريط التمرير على الهاتف والكمبيوتر\n• تقليل استهلاك المعالج والذاكرة بنسبة كبيرة أثناء الانتظار والبث عبر التحميل الكسول لنماذج الذكاء الاصطناعي ومنع تكرار التحويل\n• نقل عمليات ADB والكاميرا للخيوط الخلفية لتبقى الواجهة سلسة تماماً بدون أي تجميد\n• تقليل إعادة الرسم وتهدئة حرارة الهاتف مع الحفاظ على أعلى جودة بث",
+  "changelog_en": "• Major performance optimization eliminating UI/settings lag on both Android and Windows PC Studio\n• Dramatically reduced CPU & RAM usage via lazy AI model loading, cached standby NV12 frames, and zero idle GC churn\n• Moved ADB port forwarding & Camera2 HAL calls off UI main threads for silky-smooth responsiveness\n• Isolated Compose telemetry updates and debounced settings persistence",
   "website_url": "https://cam-moon-pro.pages.dev",
-  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.4/Cam_Moon_Pro_Setup.exe",
+  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.5/Cam_Moon_Pro_Setup.exe",
   "android_download_url": "https://cam-moon-pro.pages.dev/downloads/Cam_Moon_Pro.apk",
   "is_mandatory": false
 }
