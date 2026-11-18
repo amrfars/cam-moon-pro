@@ -730,7 +730,8 @@ body.ltr .btn-col {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-bottom: 18px;
 }
 
@@ -740,6 +741,7 @@ body.ltr .btn-col {
   font-weight: 700;
   padding: 4px 11px;
   border-radius: 999px;
+  white-space: nowrap;
 }
 
 .os-tag-pc {
@@ -1178,4 +1180,72 @@ body.ltr .footer-right {
   body.ltr .footer-right {
     align-items: center;
   }
+}
+
+/* ================= UPDATE REDIRECT BANNER & PLATFORM HIGHLIGHT ================= */
+.update-ready-banner {
+  margin-bottom: 22px;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.14), rgba(16, 185, 129, 0.08));
+  border: 1px solid rgba(56, 189, 248, 0.42);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.update-banner-head {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: var(--text-white);
+  font-size: 1.02rem;
+}
+
+.update-banner-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.18);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  color: var(--cyan);
+  font-family: var(--font-en);
+  font-weight: 800;
+  font-size: 0.82rem;
+}
+
+.update-banner-notes {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+
+.card-rec-pill {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #060911;
+  background: #38BDF8;
+  white-space: nowrap;
+}
+
+.card-rec-pill-app {
+  background: #10B981;
+}
+
+.download-card.is-highlighted-pc {
+  border-color: rgba(56, 189, 248, 0.75);
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.35), 0 18px 42px rgba(14, 165, 233, 0.18);
+}
+
+.download-card.is-highlighted-app {
+  border-color: rgba(16, 185, 129, 0.75);
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.35), 0 18px 42px rgba(16, 185, 129, 0.16);
+}
+
+.dl-container-grid.prioritize-app .download-card-app {
+  order: -1;
 }
