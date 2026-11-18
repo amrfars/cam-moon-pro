@@ -4,27 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cam Moon Pro — Studio 4K Webcam</title>
-  <meta name="description" content="Turn your Android phone into a pro 4K webcam for PC over USB with zero lag (<15ms). Works with Discord, OBS, Zoom, and NVIDIA Broadcast.">
+  <meta name="description" content="Turn your Android phone into a pro 4K webcam for PC over USB & Wi-Fi with zero lag (<15ms). Works with Discord, OBS, Zoom, and NVIDIA Broadcast.">
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Header / Navigation -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ================= NAVBAR ================= -->
   <header class="navbar">
     <div class="container nav-container">
       <a href="#hero" class="brand-logo">
         <img src="assets/logo.svg" alt="Cam Moon Pro" class="logo-img">
         <div class="brand-name">
-          <span class="brand-title">CAM MOON <span class="highlight">PRO</span></span>
-          <span class="brand-sub" data-i18n="brand_sub">STUDIO WEBCAM</span>
+          <div class="brand-title-row">
+            <span class="brand-title">CAM MOON <span class="highlight">PRO</span></span>
+            <span class="brand-badge">STUDIO</span>
+          </div>
+          <span class="brand-sub" data-i18n="brand_sub">4K WEBCAM SYSTEM</span>
         </div>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary Navigation">
         <a href="#how" data-i18n="nav_how">طريقة التشغيل</a>
         <a href="#features" data-i18n="nav_features">المميزات</a>
         <a href="#downloads" data-i18n="nav_downloads">التحميل</a>
@@ -32,8 +37,8 @@
       </nav>
 
       <div class="nav-actions">
-        <button id="langToggle" class="btn-lang" aria-label="Toggle language">
-          <svg class="lang-icon" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+        <button id="langToggle" class="btn-lang" type="button" aria-label="Toggle language">
+          <svg class="lang-icon" viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none">
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="2" y1="12" x2="22" y2="12"></line>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
@@ -42,397 +47,352 @@
         </button>
 
         <a href="#downloads" class="btn-nav-download" data-i18n="nav_btn">تحميل البرنامج</a>
+
+        <button id="mobileMenuBtn" class="btn-mobile-menu" type="button" aria-label="Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer" hidden>
+      <div class="container mobile-drawer-inner">
+        <a href="#how" class="mobile-nav-link" data-i18n="nav_how">طريقة التشغيل</a>
+        <a href="#features" class="mobile-nav-link" data-i18n="nav_features">المميزات</a>
+        <a href="#downloads" class="mobile-nav-link" data-i18n="nav_downloads">التحميل</a>
+        <a href="#faq" class="mobile-nav-link" data-i18n="nav_faq">الأسئلة الشائعة</a>
+        <a href="https://t.me/BlackxMoon1" target="_blank" rel="noopener noreferrer" class="mobile-nav-link mobile-nav-tg" data-i18n="dev_contact_btn">للتواصل مع المطور (Telegram)</a>
+        <a href="#downloads" class="mobile-nav-cta" data-i18n="nav_btn">تحميل البرنامج</a>
       </div>
     </div>
   </header>
 
   <!-- ================= HERO SECTION ================= -->
-  <section id="hero" class="hero-section">
-    <div class="container hero-container">
-      
-      <h1 class="hero-title" data-i18n="hero_title">
-        حوّل هاتفك إلى <span class="text-cyan">كاميرا ويب 4K</span> احترافية للكمبيوتر
-      </h1>
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
 
-      <p class="hero-lead" data-i18n="hero_lead">
-        بث فيديو سينمائي مباشر فائق النقاء عبر كابل الـ USB مباشرة وبدون تقطيع الواي فاي. متوافق بنسبة 100% مع Discord و OBS Studio و Zoom و NVIDIA Broadcast، مع إمكانية إطفاء شاشة الهاتف لحماية البطارية.
-      </p>
-
-      <!-- 2 Main Clean Download Buttons -->
-      <div class="hero-cta-group">
-        <a href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.1/Cam_Moon_Pro_Setup.exe" class="btn-hero-primary">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-            <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.902-1.799"/>
-          </svg>
-          <div class="btn-col">
-            <strong data-i18n="hero_dl_pc">تحميل للكمبيوتر (Windows)</strong>
-            <span class="btn-small-note" data-i18n="hero_dl_pc_sub">ملف تثبيت رسمي فوري • Setup .exe</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.1/Cam_Moon_Pro.apk" class="btn-hero-secondary">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
-            <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4116 13.8533 8.1 12 8.1s-3.5902.3116-5.1368.8497L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/>
-          </svg>
-          <div class="btn-col">
-            <strong data-i18n="hero_dl_app">تحميل للهاتف (Android)</strong>
-            <span class="btn-small-note" data-i18n="hero_dl_app_sub">تطبيق الهاتف المباشر • App .apk</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- App Compatibility Bar -->
-      <div class="hero-platforms">
-        <span class="platforms-label" data-i18n="compat_label">متوافق ومعتمد من:</span>
-        <div class="platforms-list">
-          <span class="platform-chip">Windows 10 / 11</span>
-          <span class="platform-chip">Android 8.0+</span>
-          <span class="platform-chip">Discord</span>
-          <span class="platform-chip">OBS Studio</span>
-          <span class="platform-chip">Zoom</span>
-          <span class="platform-chip">NVIDIA Broadcast</span>
-        </div>
-      </div>
-
-      <!-- Professional Studio Workstation Showcase -->
-      <div class="hero-preview-wrapper">
-        <div class="studio-window">
-          <!-- Window Header Bar -->
-          <div class="studio-titlebar">
-            <div class="window-traffic-lights">
-              <span class="light close"></span>
-              <span class="light min"></span>
-              <span class="light max"></span>
-            </div>
-            <div class="studio-title-center">
-              <img src="assets/logo.svg" alt="Cam Moon Pro" class="studio-mini-icon">
-              <span class="studio-app-name">Cam Moon Pro Studio</span>
-              <span class="studio-connection-tag" data-i18n="studio_conn">متصل عبر USB 3.0</span>
-            </div>
-            <div class="studio-title-metrics">
-              <span class="metric-chip">4K UHD</span>
-              <span class="metric-chip text-cyan">60 FPS</span>
-              <span class="metric-chip text-emerald">11.4 ms</span>
-            </div>
-          </div>
-
-          <!-- Studio Main Workspace -->
-          <div class="studio-workspace">
-            
-            <!-- Left: Live Camera Viewport -->
-            <div class="studio-viewport-panel">
-              <div class="viewport-canvas">
-                <!-- Video Stream Scene with Studio Depth -->
-                <div class="viewport-scene">
-                  <div class="scene-bokeh"></div>
-                  
-                  <!-- Top Viewport Stream Bar -->
-                  <div class="stream-hud-top">
-                    <span class="hud-status-badge" data-i18n="hud_stream_active">البث المباشر نشط</span>
-                    <span class="hud-codec-badge" data-i18n="hud_codec_tag">NVIDIA NVDEC • 0% CPU</span>
-                  </div>
-
-                  <!-- Cinema Auto-Focus Reticle -->
-                  <div class="focus-bracket-box">
-                    <div class="corner-bracket top-left"></div>
-                    <div class="corner-bracket top-right"></div>
-                    <div class="corner-bracket bottom-left"></div>
-                    <div class="corner-bracket bottom-right"></div>
-                    <div class="center-cross"></div>
-                    <div class="focus-label" data-i18n="hud_af">تركيز تلقائي ذكي • تتبع الوجه</div>
-                  </div>
-
-                  <!-- Bottom Viewport Telemetry -->
-                  <div class="stream-hud-bottom">
-                    <span class="cam-spec">SONY IMX 4K</span>
-                    <span class="cam-spec">ISO 100</span>
-                    <span class="cam-spec">1/120s</span>
-                    <span class="cam-spec">5600K</span>
-                  </div>
-                </div>
-
-                <!-- Lens Switcher Toolbar -->
-                <div class="viewport-toolbar">
-                  <div class="lens-button-group">
-                    <button class="lens-switch-btn" data-i18n="lens_wide">0.5x واسعة جداً</button>
-                    <button class="lens-switch-btn active" data-i18n="lens_main">1x العدسة الرئيسية</button>
-                    <button class="lens-switch-btn" data-i18n="lens_tele">3x تقريب سينمائي</button>
-                  </div>
-                  <div class="viewport-toggles">
-                    <span class="hud-chip active" data-i18n="toggle_dimmer">إطفاء الشاشة (AMOLED)</span>
-                    <span class="hud-chip active" data-i18n="toggle_grid">الشبكة</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Right: Studio Controls Inspector -->
-            <div class="studio-inspector-panel">
-              <div class="inspector-section-head">
-                <span class="inspector-title" data-i18n="insp_title">لوحة التحكم بالبث</span>
-                <span class="inspector-badge" data-i18n="insp_direct">سلكي مباشر</span>
-              </div>
-
-              <!-- Camera Controls -->
-              <div class="control-box">
-                <div class="control-label-row">
-                  <span class="ctrl-name" data-i18n="ctrl_focus">التركيز البؤري (Focus)</span>
-                  <span class="ctrl-val" data-i18n="ctrl_auto">تلقائي (AF-C)</span>
-                </div>
-                <div class="track-slider"><div class="slider-fill" style="width: 78%;"></div></div>
-
-                <div class="control-label-row">
-                  <span class="ctrl-name" data-i18n="ctrl_iso">حساسية الضوء (ISO)</span>
-                  <span class="ctrl-val">100</span>
-                </div>
-                <div class="track-slider"><div class="slider-fill" style="width: 35%;"></div></div>
-              </div>
-
-              <!-- Studio Presets -->
-              <div class="control-box">
-                <div class="control-label-row">
-                  <span class="ctrl-name" data-i18n="ctrl_presets">الفلاتر السينمائية</span>
-                </div>
-                <div class="preset-pills">
-                  <span class="preset-pill active" data-i18n="p_cinematic">Cinematic Pro</span>
-                  <span class="preset-pill" data-i18n="p_studio">Clean Studio</span>
-                  <span class="preset-pill" data-i18n="p_hdr">Vivid HDR</span>
-                </div>
-              </div>
-
-              <!-- Live Output Routing Status -->
-              <div class="routing-box">
-                <div class="route-row">
-                  <span class="route-icon">🎬</span>
-                  <div class="route-info">
-                    <strong data-i18n="route_target">الكاميرا الافتراضية للويندوز</strong>
-                    <span data-i18n="route_sub">Discord, OBS, Zoom, Teams</span>
-                  </div>
-                  <span class="route-status-active" data-i18n="route_active">نشط (NV12)</span>
-                </div>
-
-                <div class="route-row">
-                  <span class="route-icon">🔋</span>
-                  <div class="route-info">
-                    <strong data-i18n="phone_battery">حرارة وبطارية الهاتف</strong>
-                    <span data-i18n="phone_status">98% • شاشة مطفأة • 31°C</span>
-                  </div>
-                  <span class="route-status-cool" data-i18n="route_cool">مثالي</span>
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= 3-STEP SETUP (تعرف الناس تعمل إيه) ================= -->
-  <section id="how" class="setup-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="how_title">طريقة التشغيل في 3 خطوات بسيطة</h2>
-        <p class="section-desc" data-i18n="how_desc">بدون تعقيد وبدون الحاجة لخبرة تقنية، جهّز الكاميرا في أقل من دقيقتين:</p>
-      </div>
-
-      <div class="setup-grid">
-        <!-- Step 1 -->
-        <div class="setup-card">
-          <div class="setup-num">1</div>
-          <h3 class="setup-heading" data-i18n="step1_h">ثبّت برنامج الكمبيوتر</h3>
-          <p class="setup-text" data-i18n="step1_t">
-            حمّل ملف <strong>Cam_Moon_Pro_Setup.exe</strong> وشغّله. سيقوم البرنامج بتهيئة وتثبيت كاميرا الويندوز الافتراضية وصنع اختصار لسطح المكتب بضغطة زر واحدة.
-          </p>
+        <div class="hero-pill">
+          <span class="pill-dot"></span>
+          <span class="ver-tag">v1.0.2</span>
+          <span class="pill-sep">•</span>
+          <span data-i18n="hero_badge">مجاني بالكامل وبدون علامة مائية</span>
         </div>
 
-        <!-- Step 2 -->
-        <div class="setup-card highlight-card">
-          <div class="setup-num">2</div>
-          <h3 class="setup-heading" data-i18n="step2_h">فعّل تصحيح USB بالهاتف</h3>
-          <p class="setup-text" data-i18n="step2_t">
-            من إعدادات هاتفك، ادخل إلى "حول الهاتف" واضغط 7 مرات على "رقم الإصدار"، ثم ادخل على "خيارات المطور" وفعّل خيار <strong>تصحيح أخطاء USB (USB Debugging)</strong>.
-          </p>
-        </div>
+        <h1 class="hero-title" data-i18n="hero_title">
+          حوّل هاتفك إلى <span class="text-gradient">كاميرا ويب <bdi>4K</bdi></span> احترافية للكمبيوتر
+        </h1>
 
-        <!-- Step 3 -->
-        <div class="setup-card">
-          <div class="setup-num">3</div>
-          <h3 class="setup-heading" data-i18n="step3_h">وصّل الكابل وابدأ البث</h3>
-          <p class="setup-text" data-i18n="step3_t">
-            وصّل الهاتف بالكمبيوتر عبر كابل USB وشغّل التطبيق والبرنامج. ثم افتح Discord أو OBS أو Zoom واختر كاميرا <strong>Cam Moon Pro</strong> من قائمة الكاميرات!
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <p class="hero-lead" data-i18n="hero_lead">
+          بث فيديو سينمائي مباشر فائق النقاء عبر كابل <bdi>USB</bdi> أو شبكة <bdi>Wi-Fi</bdi> بدون تقطيع. متوافق بالكامل مع <bdi>Discord</bdi> و <bdi>OBS Studio</bdi> و <bdi>Zoom</bdi> و <bdi>NVIDIA Broadcast</bdi> مع إمكانية إطفاء شاشة الهاتف لحماية البطارية.
+        </p>
 
-  <!-- ================= 4 REAL CORE FEATURES ================= -->
-  <section id="features" class="features-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="feat_title">لماذا Cam Moon Pro أفضل من برامج الواي فاي؟</h2>
-        <p class="section-desc" data-i18n="feat_desc">أداء هندسي حقيقي يقضي على جميع عيوب تطبيقات الكاميرا التقليدية:</p>
-      </div>
+        <!-- Primary Download CTAs -->
+        <div class="hero-cta-group">
+          <a href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.2/Cam_Moon_Pro_Setup.exe" class="btn-hero-primary">
+            <span class="btn-icon-box">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.902-1.799"/>
+              </svg>
+            </span>
+            <span class="btn-col">
+              <strong data-i18n="hero_dl_pc">تحميل للكمبيوتر (Windows)</strong>
+              <span class="btn-small-note" data-i18n="hero_dl_pc_sub">ملف تثبيت رسمي • Setup .exe</span>
+            </span>
+          </a>
 
-      <div class="features-grid">
-        <!-- Feature 1 -->
-        <div class="feat-box">
-          <div class="feat-icon-wrap">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#00D2FF" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-            </svg>
-          </div>
-          <h3 class="feat-title" data-i18n="f1_title">تأخير معدوم (&lt; 15ms)</h3>
-          <p class="feat-body" data-i18n="f1_desc">نقل بيانات سلكي مباشر عبر كابل USB لا يتأثر بتذبذب الواي فاي، لتحصل على تزامن فوري وحقيقي مع حركة الشفاه.</p>
-        </div>
-
-        <!-- Feature 2 -->
-        <div class="feat-box">
-          <div class="feat-icon-wrap">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#00D2FF" stroke-width="2">
-              <rect x="1" y="6" width="18" height="12" rx="2"></rect>
-              <line x1="23" y1="11" x2="23" y2="13"></line>
-            </svg>
-          </div>
-          <h3 class="feat-title" data-i18n="f2_title">إطفاء الشاشة وتوفير البطارية</h3>
-          <p class="feat-body" data-i18n="f2_desc">خاصية AMOLED Dimmer تطفئ شاشة هاتفك تماماً أثناء البث، مما يوفر 70% من طاقة البطارية ويمنع سخونة الهاتف نهائياً.</p>
-        </div>
-
-        <!-- Feature 3 -->
-        <div class="feat-box">
-          <div class="feat-icon-wrap">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#00D2FF" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle>
-              <circle cx="12" cy="12" r="3"></circle>
-            </svg>
-          </div>
-          <h3 class="feat-title" data-i18n="f3_title">تحكم كامل بالعدسات والألوان</h3>
-          <p class="feat-body" data-i18n="f3_desc">تحكم من جهاز الكمبيوتر في التبديل بين العدسة الواسعة والتقريب، مع ضبط الفوكس اليدوي والـ ISO وفلاتر الألوان السينمائية.</p>
-        </div>
-
-        <!-- Feature 4 -->
-        <div class="feat-box">
-          <div class="feat-icon-wrap">
-            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#00D2FF" stroke-width="2">
-              <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-              <rect x="9" y="9" width="6" height="6"></rect>
-            </svg>
-          </div>
-          <h3 class="feat-title" data-i18n="f4_title">تسريع كرت الشاشة (0% معالج)</h3>
-          <p class="feat-body" data-i18n="f4_desc">فك تشفير الصورة يتم عبر شريحة كرت الشاشة GPU (NVDEC / DirectX)، ليبقى معالج جهازك حراً بالكامل للألعاب والبث.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= DOWNLOAD HUB ================= -->
-  <section id="downloads" class="download-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="dl_title">تحميل البرنامج مجاناً وبدون قيود</h2>
-        <p class="section-desc" data-i18n="dl_desc">بدون إعلانات وبدون علامة مائية على الفيديو. حمّل الإصدار الرسمي:</p>
-      </div>
-
-      <div class="dl-container-grid">
-        <!-- PC Download Card -->
-        <div class="download-card">
-          <div class="dl-card-header">
-            <span class="os-tag">Windows 10 / 11</span>
-            <span class="ver-tag">v1.0.1</span>
-          </div>
-          <h3 class="dl-h" data-i18n="card_pc_h">برنامج الكمبيوتر (Windows)</h3>
-          <p class="dl-p" data-i18n="card_pc_p">ملف تثبيت رسمي واحد يحتوي على البرنامج الكامل وتعريف كاميرا الويندوز الافتراضية DirectShow.</p>
-          
-          <div class="dl-details">
-            <span data-i18n="size_pc">الحجم: ~145 ميجابايت</span>
-            <span data-i18n="type_pc">النوع: Setup .exe تنفيذي</span>
-          </div>
-
-          <a href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.1/Cam_Moon_Pro_Setup.exe" class="btn-dl-action btn-pc">
-            <span data-i18n="btn_dl_pc">تحميل التثبيت الرسمي (.exe)</span>
+          <a href="downloads/Cam_Moon_Pro.apk" download="Cam_Moon_Pro.apk" type="application/vnd.android.package-archive" class="btn-hero-secondary">
+            <span class="btn-icon-box btn-icon-android">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4116 13.8533 8.1 12 8.1s-3.5902.3116-5.1368.8497L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/>
+              </svg>
+            </span>
+            <span class="btn-col">
+              <strong data-i18n="hero_dl_app">تحميل للهاتف (Android)</strong>
+              <span class="btn-small-note" data-i18n="hero_dl_app_sub">تثبيت مباشر بصيغة .apk</span>
+            </span>
           </a>
         </div>
 
-        <!-- Android Download Card -->
-        <div class="download-card">
-          <div class="dl-card-header">
-            <span class="os-tag">Android 8.0+</span>
-            <span class="ver-tag">v1.0.1</span>
+        <!-- Clean Key Metrics Strip -->
+        <div class="hero-metrics-grid">
+          <div class="metric-card">
+            <span class="metric-value text-cyan"><bdi>&lt; 15ms</bdi></span>
+            <span class="metric-label" data-i18n="m_latency">زمن استجابة فائق</span>
           </div>
-          <h3 class="dl-h" data-i18n="card_app_h">تطبيق الهاتف (Android)</h3>
-          <p class="dl-p" data-i18n="card_app_p">تطبيق أندرويد خفيف وسريع، يدعم دقة 4K و 60 إطار في الثانية، وخاصية البث أثناء إطفاء الشاشة.</p>
+          <div class="metric-card">
+            <span class="metric-value"><bdi>4K · 60 FPS</bdi></span>
+            <span class="metric-label" data-i18n="m_quality">دقة وسلاسة سينمائية</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value text-emerald"><bdi>0% CPU</bdi></span>
+            <span class="metric-label" data-i18n="m_gpu">فك تشفير بكرت الشاشة</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-value"><bdi>USB &amp; Wi-Fi</bdi></span>
+            <span class="metric-label" data-i18n="m_conn">اتصال مزدوج مرن</span>
+          </div>
+        </div>
 
-          <div class="dl-details">
-            <span data-i18n="size_app">الحجم: 17 ميجابايت</span>
-            <span data-i18n="type_app">النوع: تطبيق أندرويد (.apk)</span>
+        <!-- App Compatibility Bar -->
+        <div class="hero-platforms">
+          <span class="platforms-label" data-i18n="compat_label">متوافق ومعتمد من:</span>
+          <div class="platforms-list">
+            <span class="platform-chip">Windows 10 / 11</span>
+            <span class="platform-chip">Android 8.0+</span>
+            <span class="platform-chip">Discord</span>
+            <span class="platform-chip">OBS Studio</span>
+            <span class="platform-chip">Zoom</span>
+            <span class="platform-chip">NVIDIA Broadcast</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= 3-STEP SETUP ================= -->
+    <section id="how" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker" data-i18n="how_kicker">البدء السريع</span>
+          <h2 class="section-title" data-i18n="how_title">طريقة التشغيل في 3 خطوات بسيطة</h2>
+          <p class="section-desc" data-i18n="how_desc">بدون تعقيد وبدون الحاجة لخبرة تقنية، جهّز الكاميرا في أقل من دقيقتين:</p>
+        </div>
+
+        <div class="setup-grid">
+          <article class="setup-card">
+            <div class="setup-top">
+              <span class="setup-num">01</span>
+              <span class="setup-tag" data-i18n="step1_tag">الكمبيوتر</span>
+            </div>
+            <h3 class="setup-heading" data-i18n="step1_h">ثبّت برنامج الكمبيوتر</h3>
+            <p class="setup-text" data-i18n="step1_t">
+              حمّل ملف <strong>Cam_Moon_Pro_Setup.exe</strong> وشغّله. سيقوم البرنامج بتهيئة كاميرا الويندوز الافتراضية وإنشاء اختصار سطح المكتب تلقائياً.
+            </p>
+          </article>
+
+          <article class="setup-card setup-card-featured">
+            <div class="setup-top">
+              <span class="setup-num">02</span>
+              <span class="setup-tag" data-i18n="step2_tag">الهاتف</span>
+            </div>
+            <h3 class="setup-heading" data-i18n="step2_h">ثبّت تطبيق الهاتف</h3>
+            <p class="setup-text" data-i18n="step2_t">
+              حمّل تطبيق <strong>Cam_Moon_Pro.apk</strong> وافتحه للتثبيت مباشرة. للاتصال السلكي، فعّل <strong>تصحيح أخطاء USB</strong> من خيارات المطور، أو اتصل لاسلكياً عبر الواي فاي.
+            </p>
+          </article>
+
+          <article class="setup-card">
+            <div class="setup-top">
+              <span class="setup-num">03</span>
+              <span class="setup-tag" data-i18n="step3_tag">البث</span>
+            </div>
+            <h3 class="setup-heading" data-i18n="step3_h">وصّل وابدأ البث فوراً</h3>
+            <p class="setup-text" data-i18n="step3_t">
+              وصّل الهاتف عبر كابل <bdi>USB</bdi> أو شبكة <bdi>Wi-Fi</bdi>، ثم افتح <bdi>Discord</bdi> أو <bdi>OBS</bdi> أو <bdi>Zoom</bdi> واختر كاميرا <strong>Cam Moon Pro</strong>!
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CORE FEATURES ================= -->
+    <section id="features" class="section-block section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker" data-i18n="feat_kicker">أداء استوديو حقيقي</span>
+          <h2 class="section-title" data-i18n="feat_title">لماذا Cam Moon Pro أفضل من برامج الواي فاي؟</h2>
+          <p class="section-desc" data-i18n="feat_desc">أداء هندسي حقيقي يقضي على جميع عيوب تطبيقات الكاميرا التقليدية:</p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feat-box">
+            <div class="feat-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <div class="feat-content">
+              <h3 class="feat-title" data-i18n="f1_title">تأخير معدوم (<bdi>&lt; 15ms</bdi>)</h3>
+              <p class="feat-body" data-i18n="f1_desc">نقل بيانات سلكي مباشر عبر كابل USB لا يتأثر بتذبذب الواي فاي، لتحصل على تزامن فوري وحقيقي مع حركة الشفاه.</p>
+            </div>
+          </article>
+
+          <article class="feat-box">
+            <div class="feat-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="1" y="6" width="18" height="12" rx="2"></rect>
+                <line x1="23" y1="11" x2="23" y2="13"></line>
+              </svg>
+            </div>
+            <div class="feat-content">
+              <h3 class="feat-title" data-i18n="f2_title">إطفاء الشاشة وتوفير البطارية</h3>
+              <p class="feat-body" data-i18n="f2_desc">خاصية AMOLED Dimmer تطفئ شاشة هاتفك تماماً أثناء البث، مما يوفر 70% من طاقة البطارية ويمنع سخونة الهاتف نهائياً.</p>
+            </div>
+          </article>
+
+          <article class="feat-box">
+            <div class="feat-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <div class="feat-content">
+              <h3 class="feat-title" data-i18n="f3_title">تحكم كامل بالعدسات والألوان</h3>
+              <p class="feat-body" data-i18n="f3_desc">تحكم من الكمبيوتر في التبديل بين العدسة الواسعة والتقريب، مع ضبط الفوكس اليدوي والـ ISO وفلاتر الألوان السينمائية وعزل الخلفية.</p>
+            </div>
+          </article>
+
+          <article class="feat-box">
+            <div class="feat-icon-wrap">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+              </svg>
+            </div>
+            <div class="feat-content">
+              <h3 class="feat-title" data-i18n="f4_title">تسريع كرت الشاشة (0% معالج)</h3>
+              <p class="feat-body" data-i18n="f4_desc">فك تشفير الصورة يتم عبر شريحة كرت الشاشة GPU (NVDEC / DirectX)، ليبقى معالج جهازك حراً بالكامل للألعاب والبث.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= DOWNLOAD HUB ================= -->
+    <section id="downloads" class="section-block">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker" data-i18n="dl_kicker">التحميل الرسمي المباشر</span>
+          <h2 class="section-title" data-i18n="dl_title">تحميل البرنامج مجاناً وبدون قيود</h2>
+          <p class="section-desc" data-i18n="dl_desc">بدون إعلانات وبدون علامة مائية على الفيديو. حمّل الإصدار الرسمي:</p>
+        </div>
+
+        <div class="dl-container-grid">
+          <!-- PC Download Card -->
+          <div class="download-card download-card-pc">
+            <div class="dl-card-header">
+              <span class="os-tag os-tag-pc">Windows 10 / 11</span>
+              <span class="ver-tag">v1.0.2</span>
+            </div>
+            <h3 class="dl-h" data-i18n="card_pc_h">برنامج الكمبيوتر (Windows)</h3>
+            <p class="dl-p" data-i18n="card_pc_p">ملف تثبيت رسمي واحد يحتوي على البرنامج الكامل وتعريف كاميرا الويندوز الافتراضية DirectShow.</p>
+
+            <div class="dl-details">
+              <div class="dl-detail-item">
+                <span class="dl-detail-label" data-i18n="lbl_size">الحجم</span>
+                <span class="dl-detail-val" data-i18n="size_pc">~176 ميجابايت</span>
+              </div>
+              <div class="dl-detail-item">
+                <span class="dl-detail-label" data-i18n="lbl_format">الصيغة</span>
+                <span class="dl-detail-val" data-i18n="type_pc">Setup .exe تنفيذي</span>
+              </div>
+            </div>
+
+            <a href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.2/Cam_Moon_Pro_Setup.exe" class="btn-dl-action btn-pc">
+              <span data-i18n="btn_dl_pc">تحميل التثبيت الرسمي (.exe)</span>
+            </a>
           </div>
 
-          <a href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.1/Cam_Moon_Pro.apk" class="btn-dl-action btn-app">
-            <span data-i18n="btn_dl_app">تحميل تطبيق الهاتف (.apk)</span>
+          <!-- Android Download Card -->
+          <div class="download-card download-card-app">
+            <div class="dl-card-header">
+              <span class="os-tag os-tag-app">Android 8.0+</span>
+              <span class="ver-tag">v1.0.2</span>
+            </div>
+            <h3 class="dl-h" data-i18n="card_app_h">تطبيق الهاتف (Android)</h3>
+            <p class="dl-p" data-i18n="card_app_p">تطبيق أندرويد خفيف وسريع ينزل مباشرة كحزمة تثبيت جاهزة بدون فك ضغط، مع دعم 4K و 60 إطار وإطفاء الشاشة.</p>
+
+            <div class="dl-details">
+              <div class="dl-detail-item">
+                <span class="dl-detail-label" data-i18n="lbl_size">الحجم</span>
+                <span class="dl-detail-val" data-i18n="size_app">16.8 ميجابايت</span>
+              </div>
+              <div class="dl-detail-item">
+                <span class="dl-detail-label" data-i18n="lbl_format">الصيغة</span>
+                <span class="dl-detail-val" data-i18n="type_app">تطبيق أندرويد مباشر (.apk)</span>
+              </div>
+            </div>
+
+            <a href="downloads/Cam_Moon_Pro.apk" download="Cam_Moon_Pro.apk" type="application/vnd.android.package-archive" class="btn-dl-action btn-app">
+              <span data-i18n="btn_dl_app">تحميل تطبيق الهاتف (.apk)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ESSENTIAL FAQ ================= -->
+    <section id="faq" class="section-block section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-kicker" data-i18n="faq_kicker">الدعم والمساعدة</span>
+          <h2 class="section-title" data-i18n="faq_title">الأسئلة الشائعة</h2>
+          <p class="section-desc" data-i18n="faq_desc">إجابات سريعة ومباشرة على استفسارات المستخدمين:</p>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-box">
+            <button class="faq-btn" type="button">
+              <span class="faq-q-text" data-i18n="q1">لماذا كابل USB أفضل بكثير من الواي فاي (Wi-Fi)؟</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p data-i18n="a1">شبكات الواي فاي غير مستقرة وتسبب تأخيراً كبيراً في حركة الشفاه وتقطيعاً في الصورة. كابل الـ USB ينقل الفيديو بشكل سلكي مباشر وفوري بزمن استجابة أقل من 15 مللي ثانية وبأعلى دقة نقية.</p>
+            </div>
+          </div>
+
+          <div class="faq-box">
+            <button class="faq-btn" type="button">
+              <span class="faq-q-text" data-i18n="q2">الهاتف لم يظهر على شاشة الكمبيوتر، ما الحل؟</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p data-i18n="a2">تأكد من تفعيل "تصحيح أخطاء USB (USB Debugging)" من خيارات المطور بالهاتف، واستخدم كابل USB أصلي يدعم نقل البيانات. وعند ظهور رسالة السماح بالاتصال على شاشة الهاتف، اضغط "سماح دائماً".</p>
+            </div>
+          </div>
+
+          <div class="faq-box">
+            <button class="faq-btn" type="button">
+              <span class="faq-q-text" data-i18n="q3">هل يمكنني إطفاء شاشة الهاتف أثناء المكالمات والبث؟</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p data-i18n="a3">نعم، التطبيق مبرمج ليعمل في الخلفية مع إطفاء الشاشة بدون انقطاع البث، كما يتيح وضع الشاشة السوداء الكاملة (AMOLED Dimmer) لتوفير 70% من طاقة البطارية.</p>
+            </div>
+          </div>
+
+          <div class="faq-box">
+            <button class="faq-btn" type="button">
+              <span class="faq-q-text" data-i18n="q4">هل البرنامج مجاني؟ وهل توجد علامة مائية على الفيديو؟</span>
+              <span class="faq-arrow">+</span>
+            </button>
+            <div class="faq-content">
+              <p data-i18n="a4">البرنامج مجاني بالكامل وبدون أي علامات مائية على الفيديو، وبدون أي إعلانات.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Developer Contact Banner -->
+        <div class="dev-contact-card">
+          <div class="dev-contact-info">
+            <span class="dev-contact-kicker" data-i18n="dev_kicker">الدعم المباشر</span>
+            <h3 class="dev-contact-title" data-i18n="dev_title">تحتاج مساعدة أو لديك اقتراح؟</h3>
+            <p class="dev-contact-desc" data-i18n="dev_desc">للتواصل مع المطور مباشرة عبر تليجرام لأي استفسار أو دعم فني.</p>
+          </div>
+          <a href="https://t.me/BlackxMoon1" target="_blank" rel="noopener noreferrer" class="btn-telegram">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+            <span data-i18n="dev_contact_btn">للتواصل مع المطور</span>
           </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= ESSENTIAL FAQ ================= -->
-  <section id="faq" class="faq-section">
-    <div class="container">
-      <div class="section-header">
-        <h2 class="section-title" data-i18n="faq_title">الأسئلة الشائعة</h2>
-        <p class="section-desc" data-i18n="faq_desc">إجابات سريعة ومباشرة على استفسارات المستخدمين:</p>
-      </div>
-
-      <div class="faq-list">
-        <!-- Q1 -->
-        <div class="faq-box">
-          <button class="faq-btn">
-            <span class="faq-q-text" data-i18n="q1">لماذا كابل USB أفضل بكثير من الواي فاي (Wi-Fi)؟</span>
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-content">
-            <p data-i18n="a1">شبكات الواي فاي غير مستقرة وتسبب تأخيراً كبيراً في حركة الشفاه وتقطيعاً في الصورة. كابل الـ USB ينقل الفيديو بشكل سلكي مباشر وفوري بزمن استجابة أقل من 15 مللي ثانية وبأعلى دقة نقية.</p>
-          </div>
-        </div>
-
-        <!-- Q2 -->
-        <div class="faq-box">
-          <button class="faq-btn">
-            <span class="faq-q-text" data-i18n="q2">الهاتف لم يظهر على شاشة الكمبيوتر، ما الحل؟</span>
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-content">
-            <p data-i18n="a2">تأكد من تفعيل "تصحيح أخطاء USB (USB Debugging)" من خيارات المطور بالهاتف، واستخدم كابل USB أصلي يدعم نقل البيانات. وعند ظهور رسالة السماح بالاتصال على شاشة الهاتف، اضغط "سماح دائماً".</p>
-          </div>
-        </div>
-
-        <!-- Q3 -->
-        <div class="faq-box">
-          <button class="faq-btn">
-            <span class="faq-q-text" data-i18n="q3">هل يمكنني إطفاء شاشة الهاتف أثناء المكالمات والبث؟</span>
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-content">
-            <p data-i18n="a3">نعم، التطبيق مبرمج ليعمل في الخلفية مع إطفاء الشاشة بدون انقطاع البث، كما يتيح وضع الشاشة السوداء الكاملة (AMOLED Dimmer) لتوفير 70% من طاقة البطارية.</p>
-          </div>
-        </div>
-
-        <!-- Q4 -->
-        <div class="faq-box">
-          <button class="faq-btn">
-            <span class="faq-q-text" data-i18n="q4">هل البرنامج مجاني؟ وهل توجد علامة مائية على الفيديو؟</span>
-            <span class="faq-arrow">+</span>
-          </button>
-          <div class="faq-content">
-            <p data-i18n="a4">البرنامج مجاني بالكامل وبدون أي علامات مائية على الفيديو، وبدون أي إعلانات.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- ================= CLEAN FOOTER ================= -->
   <footer class="footer">
@@ -442,10 +402,16 @@
           <img src="assets/logo.svg" alt="Cam Moon Pro" class="logo-img-sm">
           <span class="brand-title">CAM MOON <span class="highlight">PRO</span></span>
         </div>
-        <p class="footer-text" data-i18n="footer_copy">استوديو كاميرا ويب احترافية عبر USB للألعاب والبث المباشر والاجتماعات.</p>
+        <p class="footer-text" data-i18n="footer_copy">استوديو كاميرا ويب احترافية عبر USB و Wi-Fi للألعاب والبث المباشر والاجتماعات.</p>
       </div>
 
       <div class="footer-right">
+        <a href="https://t.me/BlackxMoon1" target="_blank" rel="noopener noreferrer" class="footer-tg-link">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
+          <span data-i18n="dev_contact_footer">للتواصل مع المطور: @BlackxMoon1</span>
+        </a>
         <span class="copy-year">&copy; 2026 Cam Moon Pro Studio. All rights reserved.</span>
       </div>
     </div>
