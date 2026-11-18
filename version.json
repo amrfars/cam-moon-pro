@@ -1,13 +1,13 @@
 {
-  "version": "1.0.3",
-  "version_code": 103,
+  "version": "1.0.4",
+  "version_code": 104,
   "release_date": "2026-11-18",
-  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.3",
-  "title_en": "New Update Available: Cam Moon Pro v1.0.3",
-  "changelog_ar": "• مُثبّت جديد بالكامل لنظام ويندوز مع إمكانية اختيار مجلد التثبيت وتفقد المساحة الحرة\n• دعم الاكتشاف التلقائي للإصدارات الجديدة مباشرة من GitHub Releases في الهاتف والكمبيوتر\n• توجيه مباشر لصفحة التحميل الذكية مع إبراز نسخة جهازك تلقائياً\n• تحسينات في واجهة التحديثات وإضافة زر الفحص اليدوي على الهاتف",
-  "changelog_en": "• Redesigned Windows Setup installer with custom install directory picker and live disk check\n• Automatic GitHub Releases update detection on Windows, Android, and Website\n• Direct smart download-page redirect highlighting your device's update card\n• Refreshed cyan update dialog UI and manual update check on Android",
+  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.4",
+  "title_en": "New Update Available: Cam Moon Pro v1.0.4",
+  "changelog_ar": "• تحديث الهوية والشعار الرسمي الجديد للتطبيق وبرنامج الكمبيوتر والموقع بالكامل\n• ضبط أيقونة تطبيق الهاتف بدون خلفية بيضاء وحجم كاميرا واضح وممتلئ\n• مُثبّت ويندوز محسّن مع دعم اختيار مجلد التثبيت ونظام تحديثات GitHub التلقائي",
+  "changelog_en": "• Updated official Cam Moon Pro camera logo across Android, Windows PC Studio, Setup, and Website\n• Clean transparent cutout with balanced full-size Android adaptive launcher icon\n• Synchronized GitHub Releases updater and custom install path setup",
   "website_url": "https://cam-moon-pro.pages.dev",
-  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.3/Cam_Moon_Pro_Setup.exe",
+  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.4/Cam_Moon_Pro_Setup.exe",
   "android_download_url": "https://cam-moon-pro.pages.dev/downloads/Cam_Moon_Pro.apk",
   "is_mandatory": false
 }
