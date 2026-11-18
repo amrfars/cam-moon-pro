@@ -76,7 +76,7 @@
 
         <div class="hero-pill">
           <span class="pill-dot"></span>
-          <span class="ver-tag">v1.0.2</span>
+          <span class="ver-tag">v1.0.3</span>
           <span class="pill-sep">•</span>
           <span data-i18n="hero_badge">مجاني بالكامل وبدون علامة مائية</span>
         </div>
@@ -91,7 +91,7 @@
 
         <!-- Primary Download CTAs -->
         <div class="hero-cta-group">
-          <a href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.2/Cam_Moon_Pro_Setup.exe" class="btn-hero-primary">
+          <a id="heroPcBtn" href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.3/Cam_Moon_Pro_Setup.exe" class="btn-hero-primary">
             <span class="btn-icon-box">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                 <path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.902-1.799"/>
@@ -103,7 +103,7 @@
             </span>
           </a>
 
-          <a href="downloads/Cam_Moon_Pro.apk" download="Cam_Moon_Pro.apk" type="application/vnd.android.package-archive" class="btn-hero-secondary">
+          <a id="heroAppBtn" href="downloads/Cam_Moon_Pro.apk" download="Cam_Moon_Pro.apk" type="application/vnd.android.package-archive" class="btn-hero-secondary">
             <span class="btn-icon-box btn-icon-android">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                 <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4116 13.8533 8.1 12 8.1s-3.5902.3116-5.1368.8497L4.8409 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396"/>
@@ -271,12 +271,21 @@
           <p class="section-desc" data-i18n="dl_desc">بدون إعلانات وبدون علامة مائية على الفيديو. حمّل الإصدار الرسمي:</p>
         </div>
 
-        <div class="dl-container-grid">
+        <div id="updateHighlightBanner" class="update-ready-banner" hidden>
+          <div class="update-banner-head">
+            <span class="update-banner-badge" id="updateBannerBadge">v1.0.3</span>
+            <strong id="updateBannerTitle"></strong>
+          </div>
+          <p id="updateBannerNotes" class="update-banner-notes"></p>
+        </div>
+
+        <div id="dlContainerGrid" class="dl-container-grid">
           <!-- PC Download Card -->
-          <div class="download-card download-card-pc">
+          <div id="downloadCardPc" class="download-card download-card-pc">
             <div class="dl-card-header">
               <span class="os-tag os-tag-pc">Windows 10 / 11</span>
-              <span class="ver-tag">v1.0.2</span>
+              <span class="card-rec-pill" id="pcRecPill" hidden></span>
+              <span class="ver-tag">v1.0.3</span>
             </div>
             <h3 class="dl-h" data-i18n="card_pc_h">برنامج الكمبيوتر (Windows)</h3>
             <p class="dl-p" data-i18n="card_pc_p">ملف تثبيت رسمي واحد يحتوي على البرنامج الكامل وتعريف كاميرا الويندوز الافتراضية DirectShow.</p>
@@ -284,7 +293,7 @@
             <div class="dl-details">
               <div class="dl-detail-item">
                 <span class="dl-detail-label" data-i18n="lbl_size">الحجم</span>
-                <span class="dl-detail-val" data-i18n="size_pc">~176 ميجابايت</span>
+                <span id="cardPcSize" class="dl-detail-val" data-i18n="size_pc">~176 ميجابايت</span>
               </div>
               <div class="dl-detail-item">
                 <span class="dl-detail-label" data-i18n="lbl_format">الصيغة</span>
@@ -292,16 +301,17 @@
               </div>
             </div>
 
-            <a href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.2/Cam_Moon_Pro_Setup.exe" class="btn-dl-action btn-pc">
+            <a id="cardPcBtn" href="https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.3/Cam_Moon_Pro_Setup.exe" class="btn-dl-action btn-pc">
               <span data-i18n="btn_dl_pc">تحميل التثبيت الرسمي (.exe)</span>
             </a>
           </div>
 
           <!-- Android Download Card -->
-          <div class="download-card download-card-app">
+          <div id="downloadCardApp" class="download-card download-card-app">
             <div class="dl-card-header">
               <span class="os-tag os-tag-app">Android 8.0+</span>
-              <span class="ver-tag">v1.0.2</span>
+              <span class="card-rec-pill card-rec-pill-app" id="appRecPill" hidden></span>
+              <span class="ver-tag">v1.0.3</span>
             </div>
             <h3 class="dl-h" data-i18n="card_app_h">تطبيق الهاتف (Android)</h3>
             <p class="dl-p" data-i18n="card_app_p">تطبيق أندرويد خفيف وسريع ينزل مباشرة كحزمة تثبيت جاهزة بدون فك ضغط، مع دعم 4K و 60 إطار وإطفاء الشاشة.</p>
@@ -309,7 +319,7 @@
             <div class="dl-details">
               <div class="dl-detail-item">
                 <span class="dl-detail-label" data-i18n="lbl_size">الحجم</span>
-                <span class="dl-detail-val" data-i18n="size_app">16.8 ميجابايت</span>
+                <span id="cardAppSize" class="dl-detail-val" data-i18n="size_app">16.8 ميجابايت</span>
               </div>
               <div class="dl-detail-item">
                 <span class="dl-detail-label" data-i18n="lbl_format">الصيغة</span>
@@ -317,7 +327,7 @@
               </div>
             </div>
 
-            <a href="downloads/Cam_Moon_Pro.apk" download="Cam_Moon_Pro.apk" type="application/vnd.android.package-archive" class="btn-dl-action btn-app">
+            <a id="cardAppBtn" href="downloads/Cam_Moon_Pro.apk" download="Cam_Moon_Pro.apk" type="application/vnd.android.package-archive" class="btn-dl-action btn-app">
               <span data-i18n="btn_dl_app">تحميل تطبيق الهاتف (.apk)</span>
             </a>
           </div>
