@@ -1,13 +1,13 @@
 {
-  "version": "1.0.5",
-  "version_code": 105,
-  "release_date": "2026-11-18",
-  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.5 (أداء فائق السرعة)",
-  "title_en": "New Update Available: Cam Moon Pro v1.0.5 (Ultra-Light Performance)",
-  "changelog_ar": "• تحسين جذري للسرعة وخفة الواجهة وإزالة أي تهنيج في الإعدادات أو شريط التمرير على الهاتف والكمبيوتر\n• تقليل استهلاك المعالج والذاكرة بنسبة كبيرة أثناء الانتظار والبث عبر التحميل الكسول لنماذج الذكاء الاصطناعي ومنع تكرار التحويل\n• نقل عمليات ADB والكاميرا للخيوط الخلفية لتبقى الواجهة سلسة تماماً بدون أي تجميد\n• تقليل إعادة الرسم وتهدئة حرارة الهاتف مع الحفاظ على أعلى جودة بث",
-  "changelog_en": "• Major performance optimization eliminating UI/settings lag on both Android and Windows PC Studio\n• Dramatically reduced CPU & RAM usage via lazy AI model loading, cached standby NV12 frames, and zero idle GC churn\n• Moved ADB port forwarding & Camera2 HAL calls off UI main threads for silky-smooth responsiveness\n• Isolated Compose telemetry updates and debounced settings persistence",
+  "version": "1.0.6",
+  "version_code": 106,
+  "release_date": "2026-11-22",
+  "title_ar": "تحديث جديد متوفر: Cam Moon Pro v1.0.6 (السبورة الذكية و 4K/2K والتبريد الذكي)",
+  "title_en": "New Update Available: Cam Moon Pro v1.0.6 (Smart Board, 4K/2K & Smart Cooling)",
+  "changelog_ar": "• إطلاق السبورة الذكية الاحترافية مع شريط الرسم العائم القابل للسحب، 17 لوناً (منها الأسود النقي) + زر تخصيص أي لون، وأدوات الليزر والأشكال والنص وعدّاد الخطوات والسبورة السوداء/البيضاء/الشبكة مع إمكانية الرسم أثناء تشغيل الكاميرا وإغلاقها بضغطة واحدة\n• إصلاح وتشغيل دقات 4K و 2K (1440p) بسلاسة فائقة على جميع الهواتف مع دعم MediaTek HFPS 60fps ووضع Smooth 60Hz بدون أي تقطيع أو تشويه\n• تبريد ذكي للهاتف لتقليل الحرارة أثناء البث الطويل (إيقاف بث UDP أثناء الاتصال، خفض سطوع الشاشة لـ 1% في وضع التعتيم، وتخفيف حمل الـ GPU و Camera2 ISP)\n• إصلاح تسجيل الفيديو MP4 بترميز H.264 متوافق مع كل المشغلات، وحل مشكلة الفصل السريع للكاميرا، ومزامنة فورية ثنائية الاتجاه للإعدادات بين الهاتف والكمبيوتر",
+  "changelog_en": "• New Pro Smart Board & Draggable Floating Drawing Dock with 17 studio colors (including Pure Black), Custom Color Picker, Laser Pointer, Shapes, Inline Text, Step Counter, Spotlight, Instant Boards, and 1-click PC drawing while Camera stays live\n• Rock-solid 4K & 2K (1440p) streaming across all Android devices with MediaTek HFPS 60fps support, Smooth 60Hz zero-judder pacing, and SIMD 4K filter acceleration\n• 7 real Android thermal & battery optimizations keeping the phone cool during long sessions (auto-paused UDP beacon, 1% brightness AMOLED dimmer, 44% lighter viewfinder, cool DVFS operating rate, proactive thermal guard)\n• Universal H.264 MP4 recording (Camera & Smart Board), rock-solid USB/Wi-Fi connection stability, and live 2-way settings sync",
   "website_url": "https://cam-moon-pro.pages.dev",
-  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.5/Cam_Moon_Pro_Setup.exe",
+  "pc_download_url": "https://github.com/amrfars/cam-moon-pro/releases/download/v1.0.6/Cam_Moon_Pro_Setup.exe",
   "android_download_url": "https://cam-moon-pro.pages.dev/downloads/Cam_Moon_Pro.apk",
   "is_mandatory": false
 }
